@@ -15,5 +15,7 @@ export const JobList = () => {
         setOffSet((prevState)=>prevState+10);
     });
   },[])
-  return <JobCard />;
+  return <div style={{display:"flex",flexWrap:"wrap"}}>
+  {jobListData.map((jobObj,index)=><JobCard key={jobObj.jdUid+index} jobObj={jobObj} />)}
+  </div>
 };
