@@ -1,7 +1,10 @@
+import { JobList } from "./Components/JobList/JobList";
 
 function App() {
   return (
-    <h1>init</h1>
+    <div style={{height:"100vh",width:"100vw"}}>
+      <JobList />
+    </div>
   );
 }
 
