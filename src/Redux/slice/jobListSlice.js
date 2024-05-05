@@ -4,9 +4,7 @@ const jobListSlice = createSlice({
     name:"jobList",
     initialState:[],
     reducers:{
-        addJobData:(state,action)=>{
-            state.push(action.payload);
-        }
+        addJobData:(state,action)=>[...state,...action.payload]
     }
 })
 const jobListReducer = jobListSlice.reducer;
