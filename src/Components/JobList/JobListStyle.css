@@ -3,13 +3,14 @@
     width: 20%;
     border: 2px solid #dedede;
     border-radius: 5%;
-    margin:3%;
+    margin:1%;
     box-shadow: 1px 1px 5px #dedede;
+    padding: 1%;
 }
 .jobPostDays{
     border: 1px solid rgb(230, 230, 230);
     width: 40%;
-    margin: 4%;
+    margin: 5% 0;
     border-radius: 10px;
     font-size: 70%;
     font-weight: bold;
@@ -18,7 +19,6 @@
 }
 .companyDetailsContainer{
     display: flex;
-    margin: 4%;
 }
 .companyLogoDiv{
     height: 3rem;
@@ -39,4 +39,56 @@
 .jobLocation{
     font-size: 0.8em;
     font-weight: 500;
+}
+.salaryDetails{
+    font-weight: 400;
+    color: rgb(77, 89, 106);
+    font-size: 0.85em;
+}
+.aboutCompanyText{
+    margin: 1% 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+.jobDescription{
+    font-size: 0.9em;
+    display: block;
+    height: 11rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.viewJobLink{
+    text-align: center;
+    color: blue;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: -2.7rem;
+    background-color: white;
+    height: 4rem;
+    align-content: center;
+    position: relative;
+    opacity: 0.4;
+}
+.minimumExperienceText{
+    color: grey;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.easyApplyButton{
+    background-color: rgb(85, 239, 196);
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 4%;
+    cursor: pointer;
+}
+.referalButton{
+    background-color: blue;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 4%;
+    cursor: pointer;
+    color: white
 }
