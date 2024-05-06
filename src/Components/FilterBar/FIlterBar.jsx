@@ -9,10 +9,12 @@ import {
 } from "./FilterBarUtils";
 import "../../index.css";
 import "./FilterBarStyle.css";
+import { useDispatch, useSelector } from "react-redux";
+import { updateCompanyName, updateEmployeesFilter, updateExperienceFilter, updateMinimumSalaryFilter, updateRemoteFilter, updateRoleFilter } from "../../Redux/slice/FilterSlice";
 export const FilterBar = () => {
-  const handleMulti = (value) => {
-    console.log(value);
-  };
+    const dispatch = useDispatch();
+    const state = useSelector(state=>state.filters);
+    console.log(state);
   return (
     <div className="filterParentContainer">
       <Select
@@ -20,7 +22,7 @@ export const FilterBar = () => {
         isMulti
         options={getRolesDropdownOption()}
         // value={selectedItems}
-        onChange={handleMulti}
+        onChange={(value)=>dispatch(updateRoleFilter(value))}
         placeholder="Roles"
       />
       <Select
@@ -28,7 +30,7 @@ export const FilterBar = () => {
         isMulti
         options={getNumberOfEmployeesOption()}
         // value={selectedItems}
-        onChange={handleMulti}
+        onChange={(value)=>dispatch(updateEmployeesFilter(value))}
         placeholder="Number of Employees"
       />
       <Select
@@ -36,7 +38,7 @@ export const FilterBar = () => {
         isClearable
         options={getExperienceOptions()}
         // value={selectedItems}
-        onChange={handleMulti}
+        onChange={(value)=>dispatch(updateExperienceFilter(value))}
         placeholder="Experience"
       />
       <Select
@@ -44,7 +46,7 @@ export const FilterBar = () => {
         isMulti
         options={getRemoteOptions()}
         // value={selectedItems}
-        onChange={handleMulti}
+        onChange={(value)=>dispatch(updateRemoteFilter(value))}
         placeholder="Remote"
       />
       <Select
@@ -52,10 +54,10 @@ export const FilterBar = () => {
         isClearable
         options={getMinimumBasePayOptions()}
         // value={selectedItems}
-        onChange={handleMulti}
+        onChange={(value)=>dispatch(updateMinimumSalaryFilter(value))}
         placeholder="Minimum Base Pay Salary"
       />
-      <input type="text" placeholder="Search Company Name" />
+      <input type="text" placeholder="Search Company Name" onChange={(e)=>dispatch(updateCompanyName(e.target.value))}/>
     </div>
   );
 };
