@@ -31,10 +31,68 @@ export const getFilteredJobData = (jobList,filters)=>{
   if(filters.roles.length>0){
     filteredJobList = filterFromRoles(filteredJobList,filters.roles);
   }
+  if(filters.employees.length>0){
+    filteredJobList = filterFromEmployees(filteredJobList,filters.employees);
+  }
+  if(filters.experience!=null){
+    filteredJobList = filterFromExperience(filteredJobList,filters.experience);
+  }
+  if(filters.remote.length>0){
+    filteredJobList = filterFromRemote(filteredJobList,filters.remote);
+  }
+  if(filters.minimumSalary!=null){
+    filteredJobList = filterFromMinimumSalary(filteredJobList,filters.minimumSalary);
+  }
+  if(filters.companyName!=""){
+    filteredJobList = filterFromCompanyName(filteredJobList,filters.companyName);
+  }
   return filteredJobList;
 }
 const filterFromRoles = (jobList,roleFilters)=>{
   // { value: "backend", label: "Backend" }
   return jobList.filter((jobObj)=>
     roleFilters.includes(jobObj.jobRole))
+}
+const filterFromEmployees = (jobList,employeesFilter)=>{
+  return jobList.filter((jobObj)=>{
+    if(jobObj.numberOfEmployees==null){
+      return jobObj
+    }else if(employeesFilter.includes(jobObj)){
+      return employeesFilter;
+    }})
+}
+const filterFromExperience = (jobList,experienceFilter)=>{
+  return jobList.filter((jobObj)=>{
+    const jobMinExp = jobObj.minExp ?? 0;
+    const jobMaxExp = jobObj.maxExp ?? 20;
+    if(jobMinExp<=experienceFilter && experienceFilter<=jobMaxExp){
+      return jobObj;
+    }
+  })
+}
+const filterFromRemote = (jobList,remoteFilter)=>{
+  return jobList.filter((jobObj)=>{
+    if(jobObj.location=='remote' && remoteFilter.includes('remote')){
+      return jobObj;
+    }else if(jobObj.location=='hybrid' && remoteFilter.includes('hybrid')){
+      return jobObj;
+    }else if(jobObj.location!='hybrid' && jobObj.location!='remote' && remoteFilter.includes('in office')){
+      return jobObj;
+    }
+  })
+}
+const filterFromMinimumSalary = (jobList,minimumSalary)=>{
+  return jobList.filter((jobObj)=>{
+    const maxSlary = jobObj.maxJdSalary ?? 1000;
+    return minimumSalary<=maxSlary;
+  })
+}
+const filterFromCompanyName = (jobList,companyName)=>{
+  return jobList.filter((jobObj)=>{
+    if(jobObj.companyName!=null){
+      return jobObj.companyName.toLowerCase().includes(companyName.toLowerCase());
+    }else{
+      return jobObj;
+    }
+  })
 }

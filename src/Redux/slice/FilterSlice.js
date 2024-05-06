@@ -15,16 +15,16 @@ const filterSlice = createSlice({
       state.roles = action.payload.map((roleObj)=>roleObj.value);
     },
     updateEmployeesFilter: (state, action) => {
-      state.employees = action.payload;
+      state.employees = action.payload.map(employeesObj=>employeesObj.value);
     },
     updateExperienceFilter: (state, action) => {
-      state.experience = action.payload;
+      state.experience = action.payload.value;
     },
     updateRemoteFilter: (state, action) => {
-      state.remote = action.payload;
+      state.remote = action.payload.map(remoteObj=>remoteObj.value);
     },
     updateMinimumSalaryFilter: (state, action) => {
-      state.minimumSalary = action.payload;
+      state.minimumSalary = action.payload.value;
     },
     updateCompanyName: (state, action) => {
       state.companyName = action.payload;
