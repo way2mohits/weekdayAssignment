@@ -12,8 +12,9 @@ code {
     monospace;
 }
 input {
-  border: 1px solid grey;
+  border: 0.1px solid grey;
   border-radius: 5px;
   font: inherit;
   padding-left: 0.5%;
+  margin: 1%;
 }

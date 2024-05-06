@@ -8,13 +8,15 @@ import {
   getRolesDropdownOption,
 } from "./FilterBarUtils";
 import "../../index.css";
+import "./FilterBarStyle.css";
 export const FilterBar = () => {
   const handleMulti = (value) => {
     console.log(value);
   };
   return (
-    <div style={{ display: "flex" }}>
+    <div className="filterParentContainer">
       <Select
+      className="dropDown"
         isMulti
         options={getRolesDropdownOption()}
         // value={selectedItems}
@@ -22,6 +24,7 @@ export const FilterBar = () => {
         placeholder="Roles"
       />
       <Select
+      className="dropDown"
         isMulti
         options={getNumberOfEmployeesOption()}
         // value={selectedItems}
@@ -29,6 +32,7 @@ export const FilterBar = () => {
         placeholder="Number of Employees"
       />
       <Select
+      className="dropDown"
         isClearable
         options={getExperienceOptions()}
         // value={selectedItems}
@@ -36,6 +40,7 @@ export const FilterBar = () => {
         placeholder="Experience"
       />
       <Select
+      className="dropDown"
         isMulti
         options={getRemoteOptions()}
         // value={selectedItems}
@@ -43,6 +48,7 @@ export const FilterBar = () => {
         placeholder="Remote"
       />
       <Select
+      className="dropDown"
         isClearable
         options={getMinimumBasePayOptions()}
         // value={selectedItems}

@@ -1,0 +1,8 @@
+.filterParentContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0.5%;
+}
+.dropDown{
+    margin:1%
+}
