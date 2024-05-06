@@ -49,7 +49,6 @@ export const getFilteredJobData = (jobList,filters)=>{
   return filteredJobList;
 }
 const filterFromRoles = (jobList,roleFilters)=>{
-  // { value: "backend", label: "Backend" }
   return jobList.filter((jobObj)=>
     roleFilters.includes(jobObj.jobRole))
 }

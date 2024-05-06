@@ -63,12 +63,22 @@
     color: blue;
     font-size: 0.9rem;
     font-weight: 500;
-    margin-top: -2.7rem;
+    margin-top: -3.7rem;
+    height: 4rem;
+    align-content: center;
+    position: relative;
+}
+.translucentDiv{
+    text-align: center;
+    color: blue;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: -2.6rem;
     background-color: white;
     height: 4rem;
     align-content: center;
     position: relative;
-    opacity: 0.4;
+    opacity: 0.8;
 }
 .minimumExperienceText{
     color: grey;

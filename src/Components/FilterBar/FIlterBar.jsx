@@ -19,7 +19,6 @@ export const FilterBar = () => {
       className="dropDown"
         isMulti
         options={getRolesDropdownOption()}
-        // value={selectedItems}
         onChange={(value)=>dispatch(updateRoleFilter(value))}
         placeholder="Roles"
       />
@@ -27,7 +26,6 @@ export const FilterBar = () => {
       className="dropDown"
         isMulti
         options={getNumberOfEmployeesOption()}
-        // value={selectedItems}
         onChange={(value)=>dispatch(updateEmployeesFilter(value))}
         placeholder="Number of Employees"
       />
@@ -35,7 +33,6 @@ export const FilterBar = () => {
       className="dropDown"
         isClearable
         options={getExperienceOptions()}
-        // value={selectedItems}
         onChange={(value)=>dispatch(updateExperienceFilter(value))}
         placeholder="Experience"
       />
@@ -43,7 +40,6 @@ export const FilterBar = () => {
       className="dropDown"
         isMulti
         options={getRemoteOptions()}
-        // value={selectedItems}
         onChange={(value)=>dispatch(updateRemoteFilter(value))}
         placeholder="Remote"
       />
@@ -51,7 +47,6 @@ export const FilterBar = () => {
       className="dropDown"
         isClearable
         options={getMinimumBasePayOptions()}
-        // value={selectedItems}
         onChange={(value)=>dispatch(updateMinimumSalaryFilter(value))}
         placeholder="Minimum Base Pay Salary"
       />

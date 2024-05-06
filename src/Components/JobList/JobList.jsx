@@ -10,7 +10,6 @@ export const JobList = () => {
   const jobListData = useSelector((state) => state.jobList);
   const filters = useSelector(state=>state.filters);
   const filteredJobList = getFilteredJobData(jobListData,filters);
-  console.log(filteredJobList);
   const dispatch = useDispatch();
   
   useEffect(()=>{
