@@ -9,12 +9,10 @@ import {
 } from "./FilterBarUtils";
 import "../../index.css";
 import "./FilterBarStyle.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { updateCompanyName, updateEmployeesFilter, updateExperienceFilter, updateMinimumSalaryFilter, updateRemoteFilter, updateRoleFilter } from "../../Redux/slice/FilterSlice";
 export const FilterBar = () => {
     const dispatch = useDispatch();
-    const state = useSelector(state=>state.filters);
-    console.log(state);
   return (
     <div className="filterParentContainer">
       <Select

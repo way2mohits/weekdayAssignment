@@ -12,7 +12,7 @@ const filterSlice = createSlice({
   },
   reducers: {
     updateRoleFilter: (state, action) => {
-      state.roles = action.payload;
+      state.roles = action.payload.map((roleObj)=>roleObj.value);
     },
     updateEmployeesFilter: (state, action) => {
       state.employees = action.payload;

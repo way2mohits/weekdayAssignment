@@ -25,4 +25,16 @@ export const fetchJobData = async (offSet) => {
     } catch (error) {
       console.error(error);
     }
-  };
+};
+export const getFilteredJobData = (jobList,filters)=>{
+  let filteredJobList = jobList;
+  if(filters.roles.length>0){
+    filteredJobList = filterFromRoles(filteredJobList,filters.roles);
+  }
+  return filteredJobList;
+}
+const filterFromRoles = (jobList,roleFilters)=>{
+  // { value: "backend", label: "Backend" }
+  return jobList.filter((jobObj)=>
+    roleFilters.includes(jobObj.jobRole))
+}
