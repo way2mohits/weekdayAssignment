@@ -18,6 +18,26 @@ export const JobList = () => {
         setOffSet((prevState)=>prevState+10);
     });
   },[])
+  const handleScroll = async () => {
+    const {scrollHeight, clientHeight } = document.documentElement;
+    if (
+      clientHeight + document.documentElement.scrollTop + 1 >=
+      scrollHeight
+    ) {
+      fetchJobData(offSet).then((result)=>{
+        dispatch(addJobData(result.jdList));
+        setOffSet((prevState)=>prevState+10);
+    });
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.addEventListener("wheel", handleScroll);
+    };
+  });
   return <div style={{display:"flex",flexWrap:"wrap"}}>
   {filteredJobList.map((jobObj,index)=><JobCard key={jobObj.jdUid+index} jobObj={jobObj} />)}
   </div>
